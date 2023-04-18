@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-    private final Service service;
+    private final ProductService service;
 
-    public Controller(Service service) {
+    public Controller(ProductService service) {
         this.service = service;
     }
 
     @GetMapping("/products/fetch-product")
     private String mainMethod(@RequestParam("name") String name) {
-        return service.getProductName(name);
+        return service.getProducts(name);
     }
 }
